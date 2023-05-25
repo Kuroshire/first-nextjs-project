@@ -1,34 +1,20 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# What's the reason behind this project?
+This project is a first attempt at using next.js 13 in a front end application.
+It follows [this basic tutorial](https://youtu.be/__mSgDEOyv8) from fireship.
+The goal of this project is to better understand how next works and the tools it provides.
 
-## Getting Started
+# What can you see in this project?
+This project will use next 13 app routing.
+It applies next routing to a note application.
+Once the project is launched: 
+  - you can see your notes at http://localhost:3000/notes , as well as create a new note through a form
+  - you can check a specific note at http://localhost:3000/notes/:id
 
-First, run the development server:
+The database is handled by pocketbase, which allows a fast implementation of a db for this small project. To add directly table/element in the databse, start pocketbase with ```./pocketbase serve``` at the root of this project and click on the link given to access the tables and modify them.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+# What's different between this project and the tutorial?
+This project final goal is to be an example of [hexagonal architecture](https://medium.com/ssense-tech/hexagonal-architecture-there-are-always-two-sides-to-every-story-bc0780ed7d9c) implementation with front end technology, more specifically next 13. This project will serve as a template to get an idea of what can be done with next 13 in term of architecture, and how to do it properly.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# How to use this project?
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Run ```./pocketbase serve``` to start the server. You can follow the link showed in the terminal to set some data directly in the databse. Once the server is running, you can run ```npm run dev``` to start the front.
