@@ -1,27 +1,16 @@
-import styles from '../notes.module.css';
+import { NoteModel } from '@/modules/note/domain/note.model';
+import { Note } from '@/modules/note/presentation/note.component';
 
-async function getNotes(noteId:string) {
-  const res = await fetch(
-    `http://127.0.0.1:8090/api/collections/notes/records/${noteId}`,
-    {
-      next: { revalidate: 10 },
-    }
-  );
-  const data = await res.json();
-  return data
+type NotePageParams = {
+  id: NoteModel['id'];
 }
 
-export default async function NotePage({params}: any) {
-  const note = await getNotes(params.id);
+export default async function NotePage({params}: {params: NotePageParams}) {
   return (
     <div>
-      <h1>notes/{note.id}</h1>
-      <div className={styles.note}>
-        <h3>{note.title}</h3>
-        <h5>{note.content}</h5>
-        <p>{note.created}</p>
-      </div>
-
+      <h3>note/{params.id}</h3>
+      {/* @ts-expect-error Server Component */}
+      <Note id={params.id}></Note>
     </div>
   )
 }
